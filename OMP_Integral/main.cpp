@@ -27,7 +27,7 @@ long double CalcIntegral(double dA, double dB, double dAccuracy, UNARY_DOUBLE f)
 }
 
 
-int main(int argc, char** argv)
+int main(int argc, char* argv[])
 {
     double A = 1;
     double B = 15;
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
     }
 
     std::cout << "Max threads: " << omp_get_max_threads() << std::endl;
-    
+
     LOG(A);
     LOG(B);
     LOG(Accuracy);
