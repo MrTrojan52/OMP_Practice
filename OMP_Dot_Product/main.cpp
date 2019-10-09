@@ -26,12 +26,12 @@ long long GetDotProduct(std::vector<int>& rFirst, std::vector<int>& rSecond)
 }
 
 
-int main(int argc, char** argv)
+int main(int argc, char* argv[])
 {
     size_t nMaxVectorSize = 1'000'000;
     if (argc >= 2)
     {
-        long nSize = std::atoi(argv[1]);
+        long nSize = std::stol(argv[1]);
         if (nSize > 0)
         {
             nMaxVectorSize = nSize;
