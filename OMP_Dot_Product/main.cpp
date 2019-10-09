@@ -15,7 +15,7 @@ long long GetDotProduct(std::vector<int>& rFirst, std::vector<int>& rSecond)
     #pragma omp parallel for default(none) shared(rFirst, rSecond) reduction(+:lDotProduct)
     for (size_t i = 0; i < rFirst.size(); ++i)
     {
-        lDotProduct += ((long long)rFirst[i] * rSecond[i]);
+        lDotProduct += (static_cast<long long>(rFirst[i]) * rSecond[i]);
     }
 
     double dEndTime = omp_get_wtime();
@@ -28,8 +28,8 @@ long long GetDotProduct(std::vector<int>& rFirst, std::vector<int>& rSecond)
 
 int main(int argc, char** argv)
 {
-    size_t nMaxVectorSize = 100'000'000;
-    if (argc == 2)
+    size_t nMaxVectorSize = 1'000'000;
+    if (argc >= 2)
     {
         long nSize = std::atoi(argv[1]);
         if (nSize > 0)
