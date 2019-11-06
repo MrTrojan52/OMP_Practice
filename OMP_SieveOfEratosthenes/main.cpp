@@ -8,7 +8,7 @@ using ull = unsigned long long;
 
 int main(int argc, char* argv[])
 {
-    ull nMaxVectorSize = 1'000'000;
+    ull nMaxVectorSize = 100'000'000;
     if (argc >= 2)
     {
         long nSize = std::stol(argv[1]);
@@ -28,10 +28,9 @@ int main(int argc, char* argv[])
 
     double dStartTime = omp_get_wtime();
 
-    #pragma omp parallel for schedule(dynamic,1)
+    #pragma omp parallel for schedule(dynamic)
     for (ull i = 2; i <= nSqrtLimit; ++i)
     {
-
         if (bPrimeNumbers[i])
         {
             for (ull j = i * i; j <= nMaxVectorSize; j += i)
