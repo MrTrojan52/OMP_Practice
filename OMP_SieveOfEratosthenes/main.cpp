@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    std::vector<bool> bPrimeNumbers(nMaxVectorSize + 1, true);
+    std::vector<int8_t> bPrimeNumbers(nMaxVectorSize + 1, true);
     bPrimeNumbers[0] = bPrimeNumbers[1] = false;
 
     ull nSqrtLimit = static_cast<size_t>(sqrt(nMaxVectorSize));
