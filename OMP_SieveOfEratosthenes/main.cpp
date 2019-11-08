@@ -18,8 +18,8 @@ int main(int argc, char* argv[])
         }
     }
 
-    std::vector<int8_t> bPrimeNumbers(nMaxVectorSize + 1, true);
-    bPrimeNumbers[0] = bPrimeNumbers[1] = false;
+    std::vector<int8_t> nPrimeNumbers(nMaxVectorSize + 1, true);
+    nPrimeNumbers[0] = nPrimeNumbers[1] = false;
 
     ull nSqrtLimit = static_cast<size_t>(sqrt(nMaxVectorSize));
 
@@ -31,11 +31,11 @@ int main(int argc, char* argv[])
     #pragma omp parallel for schedule(dynamic)
     for (ull i = 2; i <= nSqrtLimit; ++i)
     {
-        if (bPrimeNumbers[i])
+        if (nPrimeNumbers[i])
         {
             for (ull j = i * i; j <= nMaxVectorSize; j += i)
             {
-                bPrimeNumbers[j] = false;
+                nPrimeNumbers[j] = false;
             }
         }
     }
@@ -44,6 +44,6 @@ int main(int argc, char* argv[])
 
 
     std::cout << "Prime numbers founded in " << (dEndTime - dStartTime) << " second(s)" << std::endl;
-    std::cout << "Count: " << std::count(bPrimeNumbers.begin(), bPrimeNumbers.end(), true) << std::endl;
+    std::cout << "Count: " << std::count(nPrimeNumbers.begin(), nPrimeNumbers.end(), true) << std::endl;
     return 0;
 }
